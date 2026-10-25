@@ -21,6 +21,8 @@ const LOJA = {
   nome: "Chapa & Brasa",
   slogan: "Hambúrguer na brasa, porção caprichada e açaí grosso até tarde.",
   cidade: "Castanhal · PA",
+  cor: "#C8361B",               // cor da marca; botões, destaques e modo escuro se ajustam sozinhos
+  logo: "logo.svg",             // imagem do logo (png, jpg ou svg); vazio = só o nome
   whatsapp: "",                 // DDI+DDD+número, ex.: "5591988887777". Vazio = usa demo.whatsappNexo
   instagram: "",                // usuário sem @
   endereco: "Endereço de exemplo, 123 — Centro",
@@ -32,26 +34,26 @@ const LOJA = {
   demo: { ativo: true, whatsappNexo: "5591981835525", preco: "" },  // preço vazio = apresentado na conversa
   categorias: [
     { nome: "Hambúrgueres", itens: [
-      { nome: "X-Brasa", desc: "Brioche, blend 150 g na brasa, queijo coalho e cebola caramelizada.", preco: 24.9, tag: "mais pedido" },
-      { nome: "X-Bacon Duplo", desc: "Dois blends de 120 g, cheddar, bacon crocante e molho da casa.", preco: 32.9 },
-      { nome: "Smash da Casa", desc: "Dois smash de 80 g, cheddar, picles e cebola roxa.", preco: 22.9 },
-      { nome: "X-Salada", desc: "Blend 150 g, queijo, alface, tomate e maionese verde.", preco: 19.9 }
+      { nome: "X-Brasa", desc: "Brioche, blend 150 g na brasa, queijo coalho e cebola caramelizada.", preco: 24.9, tag: "mais pedido", foto: "fotos/x-brasa.jpg" },
+      { nome: "X-Bacon Duplo", desc: "Dois blends de 120 g, cheddar, bacon crocante e molho da casa.", preco: 32.9, foto: "fotos/x-bacon-duplo.jpg" },
+      { nome: "Smash da Casa", desc: "Dois smash de 80 g, cheddar, picles e cebola roxa.", preco: 22.9, foto: "fotos/smash.jpg" },
+      { nome: "X-Salada", desc: "Blend 150 g, queijo, alface, tomate e maionese verde.", preco: 19.9, foto: "fotos/x-salada.jpg" }
     ]},
     { nome: "Porções", itens: [
-      { nome: "Batata rústica", desc: "400 g com alecrim e páprica.", preco: 18 },
-      { nome: "Batata cheddar e bacon", desc: "400 g cobertas de cheddar cremoso e bacon.", preco: 26 },
-      { nome: "Isca de frango", desc: "500 g empanadas, com molho de alho.", preco: 29.9 }
+      { nome: "Batata rústica", desc: "400 g com alecrim e páprica.", preco: 18, foto: "fotos/batata-rustica.jpg" },
+      { nome: "Batata cheddar e bacon", desc: "400 g cobertas de cheddar cremoso e bacon.", preco: 26, foto: "fotos/batata-cheddar-bacon.jpg" },
+      { nome: "Isca de frango", desc: "500 g empanadas, com molho de alho.", preco: 29.9, foto: "fotos/isca-frango.jpg" }
     ]},
     { nome: "Açaí", itens: [
-      { nome: "Açaí 500 ml", desc: "Do Pará, grosso. Com farinha d'água ou tapioca.", preco: 18, tag: "da região" },
-      { nome: "Açaí 700 ml", desc: "Grosso, com farinha d'água ou tapioca.", preco: 24 },
-      { nome: "Açaí 1 litro", desc: "Pra família toda.", preco: 32 }
+      { nome: "Açaí 500 ml", desc: "Do Pará, grosso. Com farinha d'água ou tapioca.", preco: 18, tag: "da região", foto: "fotos/acai.jpg" },
+      { nome: "Açaí 700 ml", desc: "Grosso, com farinha d'água ou tapioca.", preco: 24, foto: "fotos/acai.jpg" },
+      { nome: "Açaí 1 litro", desc: "Pra família toda.", preco: 32, foto: "fotos/acai.jpg" }
     ]},
     { nome: "Bebidas", itens: [
-      { nome: "Suco de cupuaçu", desc: "500 ml, feito na hora.", preco: 10 },
-      { nome: "Refrigerante lata", desc: "350 ml.", preco: 6 },
-      { nome: "Refrigerante 2 litros", desc: "Coca-Cola ou Guaraná.", preco: 14 },
-      { nome: "Água mineral", desc: "500 ml.", preco: 3.5 }
+      { nome: "Suco de cupuaçu", desc: "500 ml, feito na hora.", preco: 10, foto: "fotos/suco-cupuacu.jpg" },
+      { nome: "Refrigerante lata", desc: "350 ml.", preco: 6, foto: "fotos/refri-lata.jpg" },
+      { nome: "Refrigerante 2 litros", desc: "Coca-Cola ou Guaraná.", preco: 14, foto: "fotos/refri-2l.jpg" },
+      { nome: "Água mineral", desc: "500 ml.", preco: 3.5, foto: "fotos/agua.jpg" }
     ]}
   ]
 };
@@ -66,6 +68,8 @@ const LOJA = {
   --line: #D9C8AA;
   --accent: #C8361B;
   --accent-ink: #FFFFFF;
+  --accent-text: #C8361B;
+  --accent-venda: #FF6A3D;
   --ok: #2F7D3A;
   --shadow: 0 -12px 40px rgb(31 26 20 / .18);
   --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px;
@@ -113,13 +117,18 @@ button { cursor: pointer; }
 
 /* topo */
 .topo { padding-top: var(--s6); padding-bottom: var(--s5); }
+.logo {
+  display: block; width: 76px; height: 76px; margin: 0 0 var(--s4);
+  border-radius: 50%; object-fit: cover; background: var(--paper-2);
+  box-shadow: 0 0 0 1.5px var(--line);
+}
 .cidade { font-size: .8125rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); margin: 0 0 var(--s2); }
 .nome {
   font-family: var(--display); font-weight: 800; font-optical-sizing: auto;
   font-size: clamp(2.75rem, 13vw, 4.5rem); line-height: .92; letter-spacing: -.035em;
   margin: 0;
 }
-.nome .amp { color: var(--accent); font-weight: 600; }
+.nome .amp { color: var(--accent-text); font-weight: 600; }
 .slogan { font-size: 1.0625rem; color: var(--ink-2); margin: var(--s3) 0 var(--s4); max-width: 32ch; }
 .status {
   display: inline-flex; align-items: center; gap: var(--s2);
@@ -169,10 +178,31 @@ main { padding-bottom: 120px; }
 .tag {
   display: inline-block; margin-top: var(--s2);
   font-size: .6875rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-  color: var(--accent); border: 1.5px solid currentColor; border-radius: 4px; padding: 1px 6px;
+  color: var(--accent-text); border: 1.5px solid currentColor; border-radius: 4px; padding: 1px 6px;
   transform: rotate(-2deg);
 }
 .item-acao { grid-column: 2; align-self: end; }
+.item.com-foto { grid-template-columns: 1fr 96px; grid-template-rows: auto auto 1fr; }
+.item.com-foto .item-linha { grid-column: 1; grid-row: 1; }
+.item.com-foto .item-desc { grid-column: 1; grid-row: 2; }
+.item.com-foto .item-acao { grid-column: 1; grid-row: 3; align-self: end; justify-self: start; margin-top: var(--s2); }
+.item-foto {
+  grid-column: 2; grid-row: 1 / span 3; align-self: start;
+  width: 96px; height: 96px; border-radius: 12px; object-fit: cover;
+  background: var(--paper-2);
+}
+
+/* paleta de cores (só na demonstração) */
+.paleta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2) var(--s3); margin-top: var(--s4); font-size: .875rem; font-weight: 600; color: var(--ink-2); }
+.cores { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.cor {
+  width: 36px; height: 36px; padding: 0; border-radius: 50%;
+  border: 3px solid var(--paper); background: var(--c);
+  box-shadow: 0 0 0 1.5px var(--line);
+  transition: transform .15s, box-shadow .15s;
+}
+.cor:hover { transform: scale(1.08); }
+.cor[aria-pressed="true"] { box-shadow: 0 0 0 2.5px var(--ink); }
 
 .add {
   min-height: 40px; padding: 0 var(--s4);
@@ -199,7 +229,7 @@ main { padding-bottom: 120px; }
 .venda h2 { font-family: var(--display); font-weight: 800; font-size: clamp(1.75rem, 7vw, 2.25rem); line-height: 1.02; letter-spacing: -.03em; margin: 0 0 var(--s4); }
 .venda ul { margin: 0 0 var(--s5); padding: 0; list-style: none; display: grid; gap: var(--s2); }
 .venda li { padding-left: 1.5em; position: relative; }
-.venda li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.venda li::before { content: "→"; position: absolute; left: 0; color: var(--accent-venda); font-weight: 700; }
 .venda .preco-venda { font-family: var(--display); font-size: 1.25rem; font-weight: 700; margin: 0 0 var(--s4); }
 .venda a.cta {
   display: inline-flex; align-items: center; min-height: 48px; padding: 0 var(--s5);
@@ -279,13 +309,13 @@ legend { padding: 0; margin-bottom: var(--s2); }
   font-weight: 400; font-size: 1rem; resize: vertical;
 }
 .campo input:focus, .campo textarea:focus { border-color: var(--ink); outline: none; }
-.campo [aria-invalid="true"] { border-color: var(--accent); }
+.campo [aria-invalid="true"] { border-color: var(--accent-text); }
 .totais { display: grid; grid-template-columns: 1fr auto; gap: var(--s1) var(--s4); margin: 0; padding-top: var(--s3); border-top: 1.5px dashed var(--line); font-variant-numeric: tabular-nums; }
 .totais dt { color: var(--ink-2); }
 .totais dd { margin: 0; text-align: right; }
 .totais .grande { font-family: var(--display); font-weight: 800; font-size: 1.375rem; color: var(--ink); }
 .comanda-pe { padding: var(--s3) var(--s4) var(--s4); border-top: 1.5px solid var(--line); }
-.erro { margin: 0 0 var(--s2); color: var(--accent); font-weight: 600; font-size: .9375rem; }
+.erro { margin: 0 0 var(--s2); color: var(--accent-text); font-weight: 600; font-size: .9375rem; }
 .erro:empty { display: none; }
 .enviar {
   width: 100%; min-height: 52px; border: 0; border-radius: var(--r);
@@ -304,11 +334,16 @@ legend { padding: 0; margin-bottom: var(--s2); }
 <div class="faixa" id="faixa" hidden>Cardápio de demonstração · <a href="#venda">este pode ser o do seu negócio, hoje</a></div>
 
 <header class="wrap topo">
+  <img class="logo" id="logo" alt="" width="76" height="76" hidden>
   <p class="cidade" id="cidade"></p>
   <h1 class="nome" id="nome"></h1>
   <p class="slogan" id="slogan"></p>
   <span class="status" id="status"></span>
   <ul class="infos" id="infos"></ul>
+  <div class="paleta" id="paleta" hidden>
+    <span id="paleta-rotulo">Teste com a cor da sua marca</span>
+    <div class="cores" role="group" aria-labelledby="paleta-rotulo" id="cores"></div>
+  </div>
 </header>
 
 <nav class="cats" aria-label="Categorias do cardápio"><ul id="cats"></ul></nav>
@@ -421,8 +456,37 @@ legend { padding: 0; margin-bottom: var(--s2); }
     return { aberto: false, texto: "Fechado" };
   }
 
+  // cor da marca: gera o tema claro e o escuro garantindo contraste de texto (WCAG AA)
+  const rgb = (h) => { const n = parseInt(h.replace("#", ""), 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; };
+  const hex = (c) => "#" + c.map((v) => Math.round(v).toString(16).padStart(2, "0")).join("");
+  const lum = (c) => { const [r, g, b] = c.map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+  const contraste = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
+  const ajustar = (c, fundo, alvo, min) => { let t = 0, r = c; while (contraste(r, fundo) < min && t < 1) { t += 0.05; r = c.map((v, i) => v + (alvo[i] - v) * t); } return r; };
+  const estiloCor = document.createElement("style");
+  document.head.appendChild(estiloCor);
+  function aplicarCor(cor) {
+    const base = rgb(cor), PRETO = [0, 0, 0], BRANCO = [255, 255, 255], TINTA_ESCURA = rgb("#1A0E08");
+    const tinta = (c) => contraste(c, BRANCO) >= contraste(c, TINTA_ESCURA) ? "#FFFFFF" : "#1A0E08";
+    const textoClaro = hex(ajustar(base, rgb("#FBF3E4"), PRETO, 4.5));
+    const escuro = ajustar(base, rgb("#17130F"), BRANCO, 4.5);
+    const varsEscuro = "--accent:" + hex(escuro) + ";--accent-ink:" + tinta(escuro) + ";--accent-text:" + hex(escuro) + ";--accent-venda:" + textoClaro;
+    estiloCor.textContent =
+      ":root{--accent:" + cor + ";--accent-ink:" + tinta(base) + ";--accent-text:" + textoClaro + ";--accent-venda:" + hex(escuro) + "}" +
+      "@media (prefers-color-scheme: dark){:root:not([data-theme=light]){" + varsEscuro + "}}" +
+      ":root[data-theme=dark]{" + varsEscuro + "}";
+    document.querySelector('meta[name="theme-color"]').content = cor;
+  }
+  aplicarCor(LOJA.cor || "#C8361B");
+
   // topo, navegação e rodapé
   document.title = LOJA.nome + " — cardápio e pedidos";
+  if (LOJA.logo) {
+    const logo = $("#logo");
+    logo.src = LOJA.logo;
+    logo.alt = "Logo " + LOJA.nome;
+    logo.hidden = false;
+    logo.addEventListener("error", () => { logo.hidden = true; });
+  }
   $("#cidade").textContent = LOJA.cidade;
   $("#nome").innerHTML = esc(LOJA.nome).replace(/&amp;/g, '<span class="amp">&amp;</span>');
   $("#slogan").textContent = LOJA.slogan;
@@ -441,6 +505,17 @@ legend { padding: 0; margin-bottom: var(--s2); }
     "<p>Cardápio digital por NEXO</p>";
 
   if (LOJA.demo.ativo) {
+    const CORES = [["Vermelho brasa", "#C8361B"], ["Laranja", "#E4681C"], ["Mostarda", "#D99A0B"], ["Verde", "#2F7D3A"], ["Azul", "#1F5FAD"], ["Roxo açaí", "#5E2A84"], ["Rosa", "#C2185B"]];
+    $("#cores").innerHTML = CORES.map(([nome, c]) =>
+      '<button type="button" class="cor" style="--c:' + c + '" data-cor="' + c + '" aria-label="' + nome + '" aria-pressed="' + (c === LOJA.cor) + '"></button>'
+    ).join("");
+    $("#cores").addEventListener("click", (ev) => {
+      const b = ev.target.closest("[data-cor]");
+      if (!b) return;
+      aplicarCor(b.dataset.cor);
+      document.querySelectorAll("#cores .cor").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    });
+    $("#paleta").hidden = false;
     $("#faixa").hidden = false;
     $("#venda").hidden = false;
     $("#venda-preco").textContent = LOJA.demo.preco;
@@ -466,12 +541,19 @@ legend { padding: 0; margin-bottom: var(--s2); }
     '<section class="categoria" id="' + cat.id + '" aria-labelledby="' + cat.id + '-t">' +
     '<h2 id="' + cat.id + '-t">' + esc(cat.nome) + "<small>" + cat.itens.length + " opções</small></h2>" +
     '<ul class="itens">' + cat.itens.map((it) =>
-      '<li class="item" data-id="' + it.id + '">' +
+      '<li class="item' + (it.foto ? " com-foto" : "") + '" data-id="' + it.id + '">' +
+      (it.foto ? '<img class="item-foto" src="' + esc(it.foto) + '" alt="' + esc(it.nome) + '" width="96" height="96" loading="lazy" decoding="async">' : "") +
       '<div class="item-linha"><h3 class="item-nome">' + esc(it.nome) + '</h3><span class="leader" aria-hidden="true"></span><span class="item-preco">' + brl(it.preco) + "</span></div>" +
       '<p class="item-desc">' + esc(it.desc || "") + (it.tag ? '<br><span class="tag">' + esc(it.tag) + "</span>" : "") + "</p>" +
       '<div class="item-acao">' + acaoHTML(it) + "</div></li>"
     ).join("") + "</ul></section>"
   ).join("");
+
+  // foto que não carregar some e o item volta ao layout sem foto
+  document.querySelectorAll(".item-foto").forEach((img) => img.addEventListener("error", () => {
+    img.closest(".item").classList.remove("com-foto");
+    img.remove();
+  }));
 
   // categoria ativa na navegação
   const links = [...document.querySelectorAll(".cats a")];
