@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Chapa &amp; Brasa — cardápio e pedidos</title>
 <meta name="description" content="Monte seu pedido e envie direto no WhatsApp. Hambúrguer na brasa, porções, açaí e bebidas.">
-<meta property="og:title" content="Chapa & Brasa — peça pelo WhatsApp">
-<meta property="og:description" content="Escolha, monte o pedido e envie direto no WhatsApp. Sem app, sem cadastro.">
+<meta property="og:title" content="Cardápio digital com pedido no WhatsApp">
+<meta property="og:description" content="Com o logo, as cores e as fotos da sua loja, QR code pras mesas e o pedido chegando pronto no WhatsApp. Sem app e sem comissão.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://henriquefernandes02.github.io/cardapio-nexo/og.png">
 <meta property="og:image:width" content="1200">
@@ -33,23 +33,35 @@ const LOJA = {
   pagamentos: ["Pix", "Cartão na entrega", "Dinheiro"],
   demo: { ativo: true, whatsappNexo: "5591981835525", preco: "" },  // preço vazio = apresentado na conversa
   categorias: [
-    { nome: "Hambúrgueres", itens: [
+    { nome: "Hambúrgueres", chave: "burger", itens: [
       { nome: "X-Brasa", desc: "Brioche, blend 150 g na brasa, queijo coalho e cebola caramelizada.", preco: 24.9, tag: "mais pedido", foto: "fotos/x-brasa.jpg" },
       { nome: "X-Bacon Duplo", desc: "Dois blends de 120 g, cheddar, bacon crocante e molho da casa.", preco: 32.9, foto: "fotos/x-bacon-duplo.jpg" },
       { nome: "Smash da Casa", desc: "Dois smash de 80 g, cheddar, picles e cebola roxa.", preco: 22.9, foto: "fotos/smash.jpg" },
       { nome: "X-Salada", desc: "Blend 150 g, queijo, alface, tomate e maionese verde.", preco: 19.9, foto: "fotos/x-salada.jpg" }
     ]},
-    { nome: "Porções", itens: [
+    { nome: "Porções", chave: "porcoes", itens: [
       { nome: "Batata rústica", desc: "400 g com alecrim e páprica.", preco: 18, foto: "fotos/batata-rustica.jpg" },
       { nome: "Batata cheddar e bacon", desc: "400 g cobertas de cheddar cremoso e bacon.", preco: 26, foto: "fotos/batata-cheddar-bacon.jpg" },
       { nome: "Isca de frango", desc: "500 g empanadas, com molho de alho.", preco: 29.9, foto: "fotos/isca-frango.jpg" }
     ]},
-    { nome: "Açaí", itens: [
+    { nome: "Pizzas", chave: "pizza", itens: [
+      { nome: "Calabresa (G)", desc: "Molho de tomate, mussarela e calabresa fatiada.", preco: 45, tag: "mais pedida", foto: "fotos/pizza-calabresa.jpg" },
+      { nome: "Frango com catupiry (G)", desc: "Frango desfiado temperado e catupiry.", preco: 48, foto: "fotos/pizza-frango.jpg" },
+      { nome: "Marguerita (G)", desc: "Mussarela, tomate e manjericão.", preco: 44, foto: "fotos/pizza-marguerita.jpg" },
+      { nome: "Especial da casa (G)", desc: "Cebola, azeitona, tomate, pimentão e cogumelo.", preco: 49, foto: "fotos/pizza-portuguesa.jpg" }
+    ]},
+    { nome: "Pratos", chave: "pratos", itens: [
+      { nome: "Prato feito", desc: "Arroz, feijão, farofa, bife acebolado e ovo frito.", preco: 22, tag: "almoço", foto: "fotos/prato-feito.jpg" },
+      { nome: "Peixe frito", desc: "Peixe inteiro frito com vinagrete. Acompanha açaí e farinha d'água.", preco: 35, tag: "da região", foto: "fotos/peixe-frito.jpg" },
+      { nome: "Frango grelhado", desc: "Com legumes grelhados e molho da casa.", preco: 32, foto: "fotos/frango-assado.jpg" },
+      { nome: "Marmita fitness", desc: "Arroz, frango desfiado e legumes.", preco: 18, foto: "fotos/marmita.jpg" }
+    ]},
+    { nome: "Açaí", chave: "acai", itens: [
       { nome: "Açaí 500 ml", desc: "Do Pará, grosso. Com farinha d'água ou tapioca.", preco: 18, tag: "da região", foto: "fotos/acai.jpg" },
       { nome: "Açaí 700 ml", desc: "Grosso, com farinha d'água ou tapioca.", preco: 24, foto: "fotos/acai.jpg" },
       { nome: "Açaí 1 litro", desc: "Pra família toda.", preco: 32, foto: "fotos/acai.jpg" }
     ]},
-    { nome: "Bebidas", itens: [
+    { nome: "Bebidas", chave: "bebidas", itens: [
       { nome: "Suco de cupuaçu", desc: "500 ml, feito na hora.", preco: 10, foto: "fotos/suco-cupuacu.jpg" },
       { nome: "Refrigerante lata", desc: "350 ml.", preco: 6, foto: "fotos/refri-lata.jpg" },
       { nome: "Refrigerante 2 litros", desc: "Coca-Cola ou Guaraná.", preco: 14, foto: "fotos/refri-2l.jpg" },
@@ -121,6 +133,11 @@ button { cursor: pointer; }
   display: block; width: 76px; height: 76px; margin: 0 0 var(--s4);
   border-radius: 50%; object-fit: cover; background: var(--paper-2);
   box-shadow: 0 0 0 1.5px var(--line);
+}
+.logo-inicial {
+  display: grid; place-items: center; width: 76px; height: 76px; margin: 0 0 var(--s4);
+  border-radius: 50%; background: var(--accent); color: var(--accent-ink);
+  font-family: var(--display); font-weight: 800; font-size: 1.75rem; letter-spacing: -.02em;
 }
 .cidade { font-size: .8125rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); margin: 0 0 var(--s2); }
 .nome {
@@ -335,6 +352,7 @@ legend { padding: 0; margin-bottom: var(--s2); }
 
 <header class="wrap topo">
   <img class="logo" id="logo" alt="" width="76" height="76" hidden>
+  <div class="logo-inicial" id="logo-inicial" aria-hidden="true" hidden></div>
   <p class="cidade" id="cidade"></p>
   <h1 class="nome" id="nome"></h1>
   <p class="slogan" id="slogan"></p>
@@ -422,6 +440,25 @@ legend { padding: 0; margin-bottom: var(--s2); }
 <script>
 (() => {
   const $ = (s) => document.querySelector(s);
+
+  // prévia personalizada para prospecção: ?loja=Nome%20da%20Loja&cor=C8361B
+  const params = new URLSearchParams(location.search);
+  const previa = (params.get("loja") || "").trim().slice(0, 60);
+  const corParam = (params.get("cor") || "").replace("#", "");
+  if (/^[0-9a-f]{6}$/i.test(corParam)) LOJA.cor = "#" + corParam;
+  if (previa) {
+    LOJA.nome = previa;
+    LOJA.logo = "";
+    LOJA.slogan = "Prévia do cardápio digital da " + previa + ". Os produtos abaixo são de exemplo: no de vocês entram os seus, com fotos e preços.";
+    // &seg=: mostra só as categorias que combinam com o tipo de loja
+    const SEGMENTOS = {
+      hamburgueria: ["burger", "porcoes", "bebidas"], lanchonete: ["burger", "porcoes", "bebidas"],
+      pizzaria: ["pizza", "bebidas"], acaiteria: ["acai", "bebidas"], sorveteria: ["acai", "bebidas"],
+      restaurante: ["pratos", "bebidas"]
+    };
+    const seg = SEGMENTOS[(params.get("seg") || "").toLowerCase()];
+    if (seg) LOJA.categorias = seg.map((k) => LOJA.categorias.find((c) => c.chave === k)).filter(Boolean);
+  }
   const brl = (v) => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const DIAS = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
@@ -488,6 +525,11 @@ legend { padding: 0; margin-bottom: var(--s2); }
     logo.alt = "Logo " + LOJA.nome;
     logo.hidden = false;
     logo.addEventListener("error", () => { logo.hidden = true; });
+  } else if (previa) {
+    // sem logo na prévia: iniciais da loja na cor escolhida
+    const iniciais = previa.replace(/[^\p{L}\p{N}\s]/gu, " ").split(/\s+/).filter((p) => !/^(de|do|da|dos|das|e)$/i.test(p) && (p.length > 1 || /\d/.test(p))).slice(0, 2).map((p) => p[0].toUpperCase()).join("") || previa[0].toUpperCase();
+    $("#logo-inicial").textContent = iniciais;
+    $("#logo-inicial").hidden = false;
   }
   $("#cidade").textContent = LOJA.cidade;
   $("#nome").innerHTML = esc(LOJA.nome).replace(/&amp;/g, '<span class="amp">&amp;</span>');
@@ -519,6 +561,12 @@ legend { padding: 0; margin-bottom: var(--s2); }
     });
     $("#paleta").hidden = false;
     $("#faixa").hidden = false;
+    if (previa) {
+      $("#status").hidden = true;
+      $("#faixa").innerHTML = "Prévia feita para " + esc(previa) + ' · <a href="#venda">veja o que vem no de vocês</a>';
+      $("#venda-titulo").textContent = "Esse pode ser o cardápio da " + previa + ", com o logo e as fotos de vocês.";
+      document.title = previa + " — prévia do cardápio digital";
+    }
     $("#venda").hidden = false;
     $("#venda-preco").textContent = LOJA.demo.preco;
     $("#venda-preco").hidden = !LOJA.demo.preco;
