@@ -1,0 +1,51 @@
+{
+  "nome": "Imóveis Pará",
+  "segmento": "Imobiliária",
+  "cidade": "Pará",
+  "titulo": "O imóvel certo pra você, sem complicação",
+  "descricao": "Casas, apartamentos e terrenos pra comprar ou alugar, com atendimento direto pelo WhatsApp.",
+  "endereco": "Castanhal - PA",
+  "horario": "Seg a sex, 8h às 18h · Sáb, 8h às 12h",
+  "nota": "",
+  "whatsapp": "5591981835525",
+  "instagram": "",
+  "cor": "#2F7D3A",
+  "cor2": "#FFFFFF",
+  "escuro": "#10241A",
+  "fundo": "#F5F9F5",
+  "logo": "logo.svg",
+  "heroFoto": "img/destaque.jpg",
+  "tituloGaleria": "Nosso espaço",
+  "subGaleria": "",
+  "galeria": [
+    "img/destaque.jpg",
+    "img/apoio-1.jpg",
+    "img/apoio-2.jpg"
+  ],
+  "tituloServicos": "O que a gente faz",
+  "servicos": [
+    [
+      "Venda",
+      "Imóveis selecionados e visita agendada no seu horário."
+    ],
+    [
+      "Locação",
+      "Contrato, vistoria e administração do aluguel."
+    ],
+    [
+      "Financiamento",
+      "Simulação e acompanhamento junto ao banco."
+    ],
+    [
+      "Avaliação",
+      "Descubra quanto vale o seu imóvel hoje."
+    ]
+  ],
+  "tituloSobre": "Sobre a Imóveis Pará",
+  "sobre": "Atendimento de perto, do primeiro contato à entrega das chaves, com toda a documentação conferida.",
+  "botao": "Falar com um corretor",
+  "msgZap": "Oi! Quero ver imóveis.",
+  "ctaTitulo": "Fale com a gente agora.",
+  "faixa": "Modelo de site feito pela NEXO Digital (negócio fictício) · <a href=\"https://wa.me/5591981835525?text=Oi!%20Vi%20o%20modelo%20de%20site%20de%20imobili%C3%A1ria%20e%20quero%20um%20assim.\">quero um assim</a>",
+  "rodape": "Modelo de exemplo · NEXO Digital · @nexo.digital.pa"
+}

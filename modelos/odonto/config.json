@@ -1,0 +1,51 @@
+{
+  "nome": "Clínica Sorriso Vivo",
+  "segmento": "Clínica odontológica",
+  "cidade": "Pará",
+  "titulo": "Seu sorriso em boas mãos",
+  "descricao": "Atendimento humanizado, do check-up ao implante, com horário marcado pelo WhatsApp.",
+  "endereco": "Castanhal - PA",
+  "horario": "Seg a sex, 8h às 18h · Sáb, 8h às 12h",
+  "nota": "",
+  "whatsapp": "5591981835525",
+  "instagram": "",
+  "cor": "#0E8A8A",
+  "cor2": "#FFFFFF",
+  "escuro": "#0B2E33",
+  "fundo": "#F4FAF9",
+  "logo": "logo.svg",
+  "heroFoto": "img/destaque.jpg",
+  "tituloGaleria": "Nosso espaço",
+  "subGaleria": "",
+  "galeria": [
+    "img/destaque.jpg",
+    "img/apoio-1.jpg",
+    "img/apoio-2.jpg"
+  ],
+  "tituloServicos": "O que a gente faz",
+  "servicos": [
+    [
+      "Limpeza e prevenção",
+      "Profilaxia, flúor e orientação pra cuidar do sorriso em casa."
+    ],
+    [
+      "Clareamento",
+      "Clareamento de consultório e caseiro, com acompanhamento."
+    ],
+    [
+      "Ortodontia",
+      "Aparelho fixo e alinhadores, com manutenção agendada."
+    ],
+    [
+      "Implantes e próteses",
+      "Reabilitação com planejamento e parcelamento."
+    ]
+  ],
+  "tituloSobre": "Sobre a Clínica Sorriso Vivo",
+  "sobre": "Uma clínica pensada pra você se sentir à vontade: equipe atenciosa, ambiente confortável e explicação clara de cada tratamento antes de começar.",
+  "botao": "Agendar avaliação",
+  "msgZap": "Oi! Quero agendar uma avaliação.",
+  "ctaTitulo": "Fale com a gente agora.",
+  "faixa": "Modelo de site feito pela NEXO Digital (negócio fictício) · <a href=\"https://wa.me/5591981835525?text=Oi!%20Vi%20o%20modelo%20de%20site%20de%20cl%C3%ADnica%20odontol%C3%B3gica%20e%20quero%20um%20assim.\">quero um assim</a>",
+  "rodape": "Modelo de exemplo · NEXO Digital · @nexo.digital.pa"
+}

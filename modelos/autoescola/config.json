@@ -1,0 +1,51 @@
+{
+  "nome": "Autoescola Via Certa",
+  "segmento": "Autoescola",
+  "cidade": "Pará",
+  "titulo": "Sua habilitação sem enrolação",
+  "descricao": "Categorias A e B, aulas práticas com instrutor paciente e acompanhamento até o exame.",
+  "endereco": "Castanhal - PA",
+  "horario": "Seg a sex, 7h às 19h · Sáb, 7h às 12h",
+  "nota": "",
+  "whatsapp": "5591981835525",
+  "instagram": "",
+  "cor": "#1F5FAD",
+  "cor2": "#FFFFFF",
+  "escuro": "#0F1D33",
+  "fundo": "#F5F8FC",
+  "logo": "logo.svg",
+  "heroFoto": "img/destaque.jpg",
+  "tituloGaleria": "Nosso espaço",
+  "subGaleria": "",
+  "galeria": [
+    "img/destaque.jpg",
+    "img/apoio-1.jpg",
+    "img/apoio-2.jpg"
+  ],
+  "tituloServicos": "O que a gente faz",
+  "servicos": [
+    [
+      "Categoria B (carro)",
+      "Aulas teóricas e práticas com horário flexível."
+    ],
+    [
+      "Categoria A (moto)",
+      "Treino de percurso e baliza com moto da autoescola."
+    ],
+    [
+      "A e B juntas",
+      "Economize tirando as duas categorias de uma vez."
+    ],
+    [
+      "Aulas extras",
+      "Pra quem já é habilitado e quer perder o medo de dirigir."
+    ]
+  ],
+  "tituloSobre": "Sobre a Autoescola Via Certa",
+  "sobre": "Instrutores pacientes, carros revisados e acompanhamento de perto, do primeiro dia até a aprovação no exame.",
+  "botao": "Fazer matrícula",
+  "msgZap": "Oi! Quero informações sobre a matrícula.",
+  "ctaTitulo": "Fale com a gente agora.",
+  "faixa": "Modelo de site feito pela NEXO Digital (negócio fictício) · <a href=\"https://wa.me/5591981835525?text=Oi!%20Vi%20o%20modelo%20de%20site%20de%20autoescola%20e%20quero%20um%20assim.\">quero um assim</a>",
+  "rodape": "Modelo de exemplo · NEXO Digital · @nexo.digital.pa"
+}
